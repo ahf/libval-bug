@@ -3,6 +3,7 @@
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
 
 #include <validator/validator.h>
 #include <validator/val_dane.h>
@@ -46,6 +47,8 @@ int main(int argc, char *argv[])
             printf("DANE: TLSA record for hostname %s could not be verified\n", hostname);
 
         val_free_dane(status);
+
+        sleep(1);
     }
 
     val_free_context(context);
